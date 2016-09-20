@@ -37,11 +37,19 @@ ADD ${PWD}/webcam/webapp /webcam
 
 ADD ${PWD}/webcam/requirements.txt /webcam/
 
-#RUN pip install -r /webcam/requirements.txt 
+ADD ${PWD}/entrypoint.sh /webcam/
+
+ADD ${PWD}/manage.py /webcam/
+
+#RUN pip install -r /webcam/requirements.txt && \
+RUN  chmod +x /webcam/entrypoint.sh
 #RUN rm -r /webcam/webapp/settings/* 
+
+ENV C_FORCE_ROOT true
+
 
 WORKDIR /webcam
 
-CMD ["bash"] 
+ENTRYPOINT ["/webcam/entrypoint.sh"] 
 
 
