@@ -23,7 +23,7 @@ RUN    pip install python-memcached && \
     pip install td-logger && \
     pip install exifread && \
     pip install pytz && \
-    pip install django && \
+    pip install django==1.9.4 && \
     pip install django-mptt && \
     pip install thermometer  && \
     pip install django-tastypie && \
